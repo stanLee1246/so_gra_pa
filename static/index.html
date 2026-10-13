@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23157f73'/%3E%3Ctext x='8' y='24' fill='white' font-size='24'%3EC%3C/text%3E%3C/svg%3E"><title>网购投诉特征分析 · 演示版</title>
+<link rel="stylesheet" href="/static/styles.css"></head><body><header class="topbar"><div class="brand"><span class="brand-mark">C</span> Complaint Observatory <span class="brand-cn">投诉研究工作台</span></div><span class="demo-badge">DEMO · 演示模式</span></header><main>
+<div class="eyebrow">CONSUMER COMPLAINT ANALYTICS</div><h1>网购投诉特征统计与可视化分析</h1><div class="sub">从投诉明细到结构分析 · 观察范围 2023.01 — 2025.12</div>
+<div class="notice"><strong>数据说明</strong> 演示数据：2023—2025年模拟消费者投诉，平台A/B/C均为虚构名称。图表用于验证分析流程，不能据此推断真实投诉风险。</div>
+<div class="filters"><label>年份 <select id="year"></select></label><label>平台 <select id="platform"></select></label>
+<label>品类 <select id="category"></select></label><label>投诉类型 <select id="issue_type"></select></label>
+<button id="reset">重置筛选</button><a class="download" id="export" aria-disabled="true">导出当前样本 CSV</a></div>
+<div class="status" id="status" role="status">正在加载…</div><div class="cards">
+<div class="card">当前样本量（条）<strong id="total">—</strong></div><div class="card">截至观察日办结占比<strong id="closed">—</strong></div>
+<div class="card">争议金额中位数（元）<strong id="amount">—</strong></div><div class="card">已办结样本耗时中位数（天）<strong id="duration">—</strong></div></div>
+<div class="section-heading"><h2>样本结构与时间分布</h2><span>图表与明细使用同一筛选范围</span></div><div class="charts">
+<div class="panel"><h2>年度样本量（条）</h2><div class="chart" id="annual"></div></div>
+<div class="panel"><h2>月度样本量（条）</h2><div class="chart" id="monthly"></div></div>
+<div class="panel"><h2>投诉类型分布（点击下钻）</h2><div class="chart" id="types"></div></div>
+<div class="panel"><h2>商品品类分布（点击下钻）</h2><div class="chart" id="categories"></div></div>
+<div class="panel wide"><h2>品类 × 投诉类型 <select id="matrixMetric"><option value="count">数量（条）</option><option value="row_share">品类内部占比（%）</option></select></h2><div class="chart-scroll" tabindex="0" aria-label="品类类型交叉图，可横向滚动"><div class="chart" id="matrix"></div></div></div>
+<div class="panel"><h2>平台内部投诉结构（100%堆叠；非投诉率）</h2><div class="chart" id="platforms"></div></div>
+<div class="panel"><h2>当前筛选下 TOP5 类型年度样本量</h2><div class="chart" id="typeYear"></div></div>
+<div class="panel wide"><h2>投诉明细 · 截止观察日 2025-12-31</h2><div class="scroll" tabindex="0" aria-label="投诉明细表格"><table><thead><tr>
+<th>记录ID</th><th>日期</th><th>平台</th><th>品类</th><th>类型</th><th>争议金额（元）</th><th>状态</th></tr></thead><tbody id="rows"></tbody></table></div>
+<div class="pager"><button id="prev">上一页</button><span id="pageInfo" aria-live="polite"></span><button id="next">下一页</button></div></div>
+</div><footer><p class="sub">口径：消费者、实物商品、投诉记录；每条记录一个主要类型。缺失品类标记为“未知”。</p><p>本科研究原型 · 统计结构不等于投诉发生率 · 无个人身份信息</p></footer>
+</main><script src="/static/vendor/echarts.min.js"></script><script src="/static/dashboard.js" defer></script></body></html>
